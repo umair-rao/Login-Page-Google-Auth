@@ -12,6 +12,14 @@ const Navbar = () => {
         }
     }
 
+    const handleSignOut = async () => {
+        try {
+            await logOut()
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
   return (
     <div className="h-20 w-full border-b-2 flex items-center justify-between p-2">
       <ul className="flex">
@@ -19,20 +27,23 @@ const Navbar = () => {
             <Link href='/'>Home</Link>
         </li>
         <li className="p-2 cursor-pointer">
-            <Link href='/about'>About</Link>
-        </li>
-        <li className="p-2 cursor-pointer">
-            <Link href='/profile'>Profile</Link>
+            <Link href='/uploadFile'>Upload File</Link>
         </li>
       </ul>
-      <ul className="flex">
+      {!user ? (      <ul className="flex">
         <li onClick={handleSignIn} className="p-2 cursor-pointer">
             Login
         </li>
         <li onClick={handleSignIn} className="p-2 cursor-pointer">
             Sign up
         </li>
-      </ul>
+      </ul>) : (
+        <div>
+            <p>Welcome, {user.displayName}</p>
+            <p className="cursor-pointer pt-4" onClick={handleSignOut} >Sign out</p>
+        </div>
+      ) }
+
     </div>
   )
 } 
