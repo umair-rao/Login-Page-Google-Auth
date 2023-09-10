@@ -17,7 +17,7 @@ export default function UploadButtonPage() {
 const title = images.length ? (
   <>
   <p>Upload Complete</p>
-  <p className="mt-2">{images.length} Files Uploaded</p>
+  <p className="mt-2">{images.length} File(s) Uploaded</p>
   </>
 ): null
 
