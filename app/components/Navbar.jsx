@@ -32,10 +32,7 @@ const Navbar = () => {
       </ul>
       {!user ? (      <ul className="flex">
         <li onClick={handleSignIn} className="p-2 cursor-pointer">
-            Login
-        </li>
-        <li onClick={handleSignIn} className="p-2 cursor-pointer">
-            Sign up
+            Login / Sign up
         </li>
       </ul>) : (
         <div>
